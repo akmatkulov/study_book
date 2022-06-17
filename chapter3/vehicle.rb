@@ -23,19 +23,21 @@ end
 class Car < Vehicle 
 end 
 
-class Trucl < Vehicle 
+class Truck < Vehicle 
+    attr_accessor :cargo
+
+    def load_bed(contents)
+        puts "Securing #{contents} in the truck bed."
+        @cargo = contents 
+    end 
 end 
 
 class Motorcycle < Vehicle 
+    def steer 
+        puts "Turn front wheel."
+    end 
 end 
 
-car = Car.new 
-car.odometr = 11432
-car.gas_used = 366 
 
-car.accelerate
-car.sound_horn 
-car.steer
-
-puts "Lifetime MPG:"
-puts car.mileage
+kawasaki = Motorcycle.new 
+kawasaki.steer
