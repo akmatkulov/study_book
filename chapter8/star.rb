@@ -2,12 +2,15 @@ class CelestialBody
     attr_accessor :name, :type
 end 
 
-default_body = CelestialBody.new 
-default_body.type = 'planet'
-bodies = Hash.new(default_body)
+budies = Hash.new do |hash, key|
+    body = CelestialBody.new 
+    body.type = "planet"
+    hash[key] = body 
+end 
 
-p bodies.default 
+budies["Mars"].name = "Mars"
+budies["Europa"].name = "Europa"
+budies["Europa"].type = "moon"
+budies["Venus"].name = "Venus"
 
-bodies['Mars'].name = "Mars"
-
-p bodies.default 
+puts budies
